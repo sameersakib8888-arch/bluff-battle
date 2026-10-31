@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: bluff-battle
+    runtime: python
+    plan: free
+    region: singapore
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.5
+      - key: PYTHONUNBUFFERED
+        value: "1"
